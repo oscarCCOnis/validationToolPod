@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: validationtool
+  namespace: monitoring
+  labels: &Labels
+    k8s-app: validationtool
+    app.kubernetes.io/name: validationtool
+    app.kubernetes.io/component: validationtool
+spec:
+  replicas: 1
+  selector:
+    matchLabels: *Labels
+  strategy: {}
+  template:
+    metadata:
+      labels: *Labels
+    spec:
+      containers:
+      - image: mxtltppeharbor.mx.att.com/matrixx_prod01/monitoring/validationtoolspod:1.2
+        command: ["sh", "-c", "tail -f /dev/null"]
+        name: validationtool
+        imagePullPolicy: Always
+        resources: {}
