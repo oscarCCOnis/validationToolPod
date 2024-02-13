@@ -43,3 +43,5 @@ RUN apt update
 RUN apt install htop
 COPY ./mongodb-database-tools-ubuntu2004-x86_64-100.8.0.deb ./mongodb-database-tools-ubuntu2004-x86_64-100.8.0.deb
 RUN apt install ./mongodb-database-tools-*-100.8.0.deb
+RUN apt install curl -y
+RUN apt install rsync -y
